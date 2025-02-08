@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":["type Heap struct {\n\tI []int64\n\n\tW []int64\n}"],"Function Declarations":[""],"Function Implementations":["func (h Heap) less(a, b int64) bool {\n\ti, j := h.I[a], h.I[b]\n\treturn h.W[i] \u003c h.W[j]\n}"],"Enums":[]}

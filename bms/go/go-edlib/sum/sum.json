@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()","var res int"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func sum(arr []int) int {\n\tvar res int\n\tfor _, v := range arr {\n\t\tres += v\n\t}\n\treturn res\n}"],"Enums":[]}

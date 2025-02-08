@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":["type Matrix struct {\n\tN int64\n\tA []int64\n}"],"Function Declarations":[""],"Function Implementations":["func (m Matrix) Get(i int64, j int64) int64 {\n\treturn m.A[i*m.N+j]\n}"],"Enums":[]}

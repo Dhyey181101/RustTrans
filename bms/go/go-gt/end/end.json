@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func end(s string) (i int64) {\n\tfor i = 0; i \u003c int64(len(s)); i++ {\n\t\tif s[i] == ' ' || s[i] == '\\t' || s[i] == '\\n' {\n\t\t\treturn i\n\t\t}\n\t}\n\treturn 0\n}"],"Enums":[]}

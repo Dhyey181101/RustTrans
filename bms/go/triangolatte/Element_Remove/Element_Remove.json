@@ -1,0 +1,1 @@
+{"Includes":["import (\n)"],"Defines":["const (\n)"],"TypeDefs":[],"Globals":["var (\n)"],"Structs":["type Element struct {\n\tPrev, Next *Element\n\t\n}"],"Function Declarations":[""],"Function Implementations":["func (e *Element) Remove() {\n\te.Next.Prev = e.Prev\n\te.Prev.Next = e.Next\n}"],"Enums":[]}

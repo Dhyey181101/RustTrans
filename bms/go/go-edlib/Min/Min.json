@@ -1,0 +1,1 @@
+{"Includes":["import (\n)"],"Defines":["const (\n)"],"TypeDefs":[],"Globals":["var (\n)"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func Min(a int, b int) int {\n\tif b \u003c a {\n\t\treturn b\n\t}\n\treturn a\n}"],"Enums":[]}

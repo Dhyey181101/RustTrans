@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":["type Point struct {\n\tX, Y float64\n}"],"Function Declarations":[""],"Function Implementations":["func (p Point) Distance2(r Point) float64 {\n\treturn (p.X-r.X)*(p.X-r.X) + (p.Y-r.Y)*(p.Y-r.Y)\n}"],"Enums":[]}

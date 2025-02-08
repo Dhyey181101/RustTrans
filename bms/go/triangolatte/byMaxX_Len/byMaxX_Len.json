@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":["type byMaxX [][]Point"],"Globals":["var ()"],"Structs":["type Point struct {\n\tX, Y float64\n}"],"Function Declarations":[""],"Function Implementations":["func (polygons byMaxX) Len() int {\n\treturn len(polygons)\n}"],"Enums":[]}

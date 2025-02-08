@@ -1,0 +1,11 @@
+transpilations/
+translations/
+tmp/
+Differential_Tester/
+analysis/
+all_statistics/
+random/
+__pycache__/
+*.tar.gz
+test.ipynb
+trasnlations_only/

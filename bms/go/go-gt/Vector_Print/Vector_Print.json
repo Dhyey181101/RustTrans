@@ -1,0 +1,1 @@
+{"Includes":["import (\n\t\"fmt\"\n)"],"Defines":["const ()"],"TypeDefs":["type Vector []int64"],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func (v Vector) Print() {\n\tfor i := 0; i \u003c len(v); i++ {\n\t\tfmt.Printf(\"%d \", v[i])\n\t}\n\tfmt.Print(\"\\n\")\n}"],"Enums":[]}

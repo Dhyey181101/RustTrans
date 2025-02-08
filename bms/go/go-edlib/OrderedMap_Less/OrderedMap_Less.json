@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":["type OrderedMap []pair"],"Globals":["var ()"],"Structs":["type pair struct {\n\tKey   string\n\tValue float32\n}"],"Function Declarations":[""],"Function Implementations":["func (p OrderedMap) Less(i, j int) bool { return p[i].Value \u003c p[j].Value }"],"Enums":[]}

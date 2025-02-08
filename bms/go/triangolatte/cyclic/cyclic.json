@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func cyclic(i, n int) int {\n\treturn (i%n + n) % n\n}"],"Enums":[]}

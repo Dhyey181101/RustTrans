@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":["type Vector []int64"],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func (p Vector) Swap(i int64, j int64) {\n\tx := p[i]\n\tp[i] = p[j]\n\tp[j] = x\n}"],"Enums":[]}

@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":["type Vector []int64"],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func (v Vector) Copy(w Vector) {\n\tfor i := 0; i \u003c len(v); i++ {\n\t\tv[i] = w[i]\n\t}\n}"],"Enums":[]}

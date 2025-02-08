@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":["type Vector []int64"],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func (v Vector) Len() int64 {\n\treturn int64(len(v))\n}"],"Enums":[]}

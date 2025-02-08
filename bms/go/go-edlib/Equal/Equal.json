@@ -1,0 +1,1 @@
+{"Includes":["import (\n)"],"Defines":["const (\n)"],"TypeDefs":[],"Globals":["var (\n)"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func Equal(a, b []rune) bool {\n\tif len(a) != len(b) {\n\t\treturn false\n\t}\n\tfor i, v := range a {\n\t\tif v != b[i] {\n\t\t\treturn false\n\t\t}\n\t}\n\treturn true\n}"],"Enums":[]}

@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func max(a, b int64) int64 {\n\tif a \u003e b {\n\t\treturn a\n\t}\n\treturn b\n}"],"Enums":[]}

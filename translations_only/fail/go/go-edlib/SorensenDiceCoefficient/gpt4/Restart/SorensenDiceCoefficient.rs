@@ -1,0 +1,29 @@
+
+use std::collections::HashMap;
+
+fn sorensen_dice_coefficient(str1: &str, str2: &str, split_length: isize) -> f32 {
+    if str1.is_empty() && str2.is_empty() {
+        return 0.0;
+    }
+    let shingle1 = shingle(str1, split_length);
+    let shingle2 = shingle(str2, split_length);
+
+    let intersection: f32 = shingle1
+        .iter()
+        .filter(|(k, _)| shingle2.contains_key(*k))
+        .count() as f32;
+
+    2.0 * intersection / (shingle1.len() + shingle2.len()) as f32
+}
+
+fn shingle(s: &str, k: isize) -> HashMap<String, isize> {
+    let mut m = HashMap::new();
+    if !s.is_empty() && k != 0 {
+        let rune_s: Vec<char> = s.chars().collect();
+
+        for i in 0..=rune_s.len() - k as usize {
+            *m.entry(rune_s[i..i + k as usize].iter().collect()).or_insert(0) += 1;
+        }
+    }
+    m
+}

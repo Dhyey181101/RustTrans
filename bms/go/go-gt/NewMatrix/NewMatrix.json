@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":["type Matrix struct {\n\tN int64\n\tA []int64\n}"],"Function Declarations":[""],"Function Implementations":["func NewMatrix(n int64) (m *Matrix) {\n\tm = new(Matrix)\n\tm.N = n\n\tm.A = make([]int64, n*n)\n\treturn m\n}"],"Enums":[]}

@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":[],"Function Declarations":[""],"Function Implementations":["func cube(x float64) float64 {\n\treturn x * x * x\n}"],"Enums":[]}

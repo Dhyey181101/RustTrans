@@ -1,0 +1,16 @@
+
+fn shingle_slice(s: &str, k: isize) -> Box<Vec<String>> {
+    let mut out: Vec<String> = Vec::new();
+    let mut m: std::collections::HashMap<String, isize> = std::collections::HashMap::new();
+    if !s.is_empty() && k != 0 {
+        let rune_s: Vec<char> = s.chars().collect();
+        for i in 0..rune_s.len() - (k as usize) + 1 {
+            let key: String = rune_s[i..i + (k as usize)].iter().collect();
+            *m.entry(key).or_insert(0) += 1;
+        }
+        for k in m.keys() {
+            out.push(k.to_string());
+        }
+    }
+    Box::new(out)
+}

@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":["type Heap struct {\n\tI []int64\n\tA []int64\n}"],"Function Declarations":[""],"Function Implementations":["func (h Heap) swap(a, b int64) {\n\ti, j := h.I[a], h.I[b]\n\th.I[a], h.I[b] = h.I[b], h.I[a]\n\th.A[i], h.A[j] = b, a\n}"],"Enums":[]}

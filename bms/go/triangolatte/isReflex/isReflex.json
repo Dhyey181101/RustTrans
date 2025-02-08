@@ -1,0 +1,1 @@
+{"Includes":[],"Defines":["const ()"],"TypeDefs":[],"Globals":["var ()"],"Structs":["type Point struct {\n\tX, Y float64\n}"],"Function Declarations":[""],"Function Implementations":["func isReflex(a, b, c Point) bool {\n\treturn (b.X-a.X)*(c.Y-b.Y)-(c.X-b.X)*(b.Y-a.Y) \u003c 0\n}"],"Enums":[]}
