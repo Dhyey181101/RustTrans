@@ -1,68 +1,64 @@
-# Overview
+# Conversational Agent for Code Translation to Rust
 
-THIS IS PERSONAL PROJECT FORKED FROM AMAZON RESEARCH TEAM, NON-PUBLIC AND NON-COMMERCIAL, ONLY SOME OF RESULTS IS SHOWED
+This repository contains the implementation and evaluation of a multi-phase automated translation framework that converts C code to Rust. The approach is designed to facilitate the migration of legacy projects by preserving functionality, enhancing maintainability, and leveraging Rust’s memory safety and performance benefits.
 
-This artifact is for PC members to inspect only. A fully functional artifact will be submitted to the Artifact Evaluation track on acceptance of the publication.
+## Overview
 
-This artifact contains the following:
-- The implementation of our end-to-end translation tool Flourine
-- The benchmarks used in our paper
-- The final LLM translations for each of our 8160 experiments
-- A csv table containing the the results of each of the 8160 individual experiments, which can be used to regenerate the figures and statistics in the paper 
+Automated code translation transforms code from one language to another while preserving its functionality. This project focuses specifically on translating C code to Rust, addressing developers’ hesitations in migrating legacy codebases. By automatically converting C to Rust, the framework extends software lifespan, improves maintainability, and broadens compatibility across platforms.
 
-In addition, detailed logs of the experiments can be downloaded at: https://d34gtk3knhjgeg.cloudfront.net/translations.tar.gz
-These logs total 19GB uncompressed, and contain:
-- the final transpilation produced by the LLMs
-- the prompts sent to the LLMs and the responses
-- the full Clippy output
+## Methodology
 
-The code for extracting benchmarks is built on open source libraries which may reveal our identities, so we have not included it in this artifact. This code will be released on acceptance and included in the artifact submitted to the artifact evaluation track.
+The proposed approach is organized into four distinct phases:
 
-Details of each item are given below.
+- **Initial Translation:**  
+  Leverages Mistral-7b-instruct to generate a baseline Rust translation from the input C code.
 
-## Flourine implementation
-Flourine is implemented in the python files in this directory and the Rust/C/Go code under Differential_Tester.
-Below are details on each of the files.
-- drivery.py: the main entry point for Flourine
-- transpiler.py: code for obtaining the initial transpilation from the LLM. 
-- fixer.py: code for fixing compilation errors in the initial transpilation
-- oracle.py: code that invokes the fuzzer
-- llms.py: code that handles correctly formatting the prompts different LLMs
-- semantics.py: code that implements feedback strategies
-- Differential_Fuzzer/: the code for the fuzzer
+- **Compilation Validation:**  
+  Systematically checks the generated Rust code for compilation errors. When errors occur, an error-driven refactoring approach uses compiler messages to identify and resolve specific translation issues, ensuring syntactic correctness and compliance with Rust’s safety standards.
 
-## Benchmarks
-The benchmarks used in our work are located under ./bms. Each individual source file is a benchmark. Statistics (e.g. loc, number of functions) is stored in all_statistics/benchmarks.csv.
+- **Fuzz Testing:**  
+  Executes comprehensive fuzz testing to validate that the translated Rust code functions identically to the original C code. This phase is critical for uncovering semantic discrepancies that might not surface during compilation checks.
 
-## Final Translations
-The final translations are located under ./translations, which has two sub directories success/ and fail/. The paths under these sub directories have the following format: language/project/benchmark/llm/feedback-strategy/, which each contain a single rust file corresponding to the translation.
+- **Multi-Agent Collaboration:**  
+  Implements a Mistral-Llama feedback loop that iteratively processes counterexamples to improve translation accuracy. This counterexample-driven feedback mechanism refines translations through targeted improvements while maintaining lightweight configurations for cost-effectiveness and scalability.
 
-## Detailed Translation Logs
-In addition, we provide detailed translation logs for each individual translation experiment, which can be downloaded from https://d34gtk3knhjgeg.cloudfront.net/translations.tar.gz.
-The unzipped tarball contains a directory with the same structure as the final translations, but with the following files for each experiment:
-- results/ : contains the final translation and original source program
-- wspace_clippy/clippy_*.out : The output for different clippy warnings
-- wspace/logs/prog_*.ans : the prompts used to obtain transpilations, fix compilation errors, and fix counterexamples
+## Evaluation
 
+The framework was evaluated using two distinct C libraries:
+ 
+- **libopenaptx:** A C library designed for audio processing applications (31 source files).
+- **opl:** A C library focused on sound card emulation (81 source files).
 
-## Result table
-A summary of the result for each experiment is in all_statistics/new_big_table.csv. Each row corresponds to an individual translation experiment. It has the following columns:
-- language
-- project
-- benchmark_name
-- llm
-- feedback_strategy
-- final_status: either "Success" or "Fail". "Success" we found a translation that passed the oracle. "Fail" means a translation was not found for one of several reasons.
-- status_detail: a more detailed reason for "Fail". Possible values are:
-	- "Did not compile" 
-	- "Initial Oracle OOS", "Oracle Somtimes OOS", "Oracle Always OOS": these mean that the fuzzer could not map data between languages, usually because of serialization issues
-	- "Pending", "Crash": these mean that Flourine crashed while invoking the LLM. These failures are due to a problem with the LLM provider
-- loc: number of lines of code in the benchmark
-- num_funcs: the number of functions in the benchmark
-- compilation_queries: the number of queries made to fix compilation errors
-- total_queries: the total number of queries made to the LLM in the entire translation experiment
-- clippy_correctness,clippy_suspicious,clippy_style,clippy_complexity,clippy_perf: the different warnings returned by clipyy for each category of warning. The value of a column is a JSON dictionary, with the key being a specific warning and the value being the # of occurences of that warning
-- has_unsafe: whether the LLM translation had unsafe code or not
-- translation_loc: the number of lines of code in the final translation
+These evaluations involved configuring the initial translation with up to 12 repeat iterations and applying fuzz testing parameters (e.g., a maximum input size of 32,768 bytes and a 7-minute execution timeout per test case) to ensure rigorous validation of the translated Rust code.
 
+## Key Contributions
 
+- **Multi-Phase Translation Process:**  
+  Integrates iterative refinement techniques—from initial translation and compilation validation to fuzz testing and multi-agent collaboration—to achieve high-fidelity code translations.
+
+- **Error-Driven Repair:**  
+  Uses compiler error messages and counterexample-based feedback loops to systematically identify and resolve translation errors.
+
+- **Leveraging Multiple LLMs:**  
+  Coordinates the strengths of Mistral and Llama to enhance translation reliability and tackle complex code dependencies.
+
+## Replication
+
+A complete replication package is available with detailed instructions for evaluation and dataset construction. Researchers and practitioners can refer to the replication package to reproduce experimental results and further explore the methodology.
+
+## Authors
+
+- Quoc Hung Le ([qle3@ncsu.edu](mailto:qle3@ncsu.edu))
+- Yung Hsuan Teng ([yteng2@ncsu.edu](mailto:yteng2@ncsu.edu))
+- Krishna Prashant Patel ([kpatel43@ncsu.edu](mailto:kpatel43@ncsu.edu))
+- Dhyey Samirbhai Shah ([dshah22@ncsu.edu](mailto:dshah22@ncsu.edu))
+
+## Citation
+
+If you use this work in your research, please cite:
+
+> Quoc Hung Le, Yung Hsuan Teng, Krishna Prashant Patel, and Dhyey Samirbhai Shah. 2024. *Conversational Agent for Code Translation to Rust*. 1, 1 (December 2024), 8 pages.
+
+---
+
+This README summarizes the project as described in the report and provides an overview of the framework’s methodology, evaluation, and key contributions in automating the translation of C code to Rust.
