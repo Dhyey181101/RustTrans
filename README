@@ -61,4 +61,31 @@ If you use this work in your research, please cite:
 
 ---
 
+### Citations & References
+
+1. [GAISE Report](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/31594813/71f1edf6-5de2-4d9a-ac1f-b2861852e6a0/GAISE_report.pdf)
+2. [GitHub Project](https://github.com/codebasics/project-genai-cold-email-generator/activity)
+3. [arXiv 2411.13990v3](https://arxiv.org/html/2411.13990v3)
+4. [arXiv Abstract](https://arxiv.org/abs/2411.13990)
+5. [arXiv 2411.13990v1](https://arxiv.org/html/2411.13990v1)
+6. [arXiv PDF](http://arxiv.org/pdf/2411.13990.pdf)
+7. [TrustedGPT Repository](https://github.com/TrustedGPT/RustRepoTrans)
+8. [Repository-Level Code Translation Benchmark](https://www.semanticscholar.org/paper/Repository-level-Code-Translation-Benchmark-Rust-Ou-Liu/69a9edf97014dd19bbc2dbc27d109b094f8a9a12)
+9. [TrustedGPT on GitHub](https://github.com/TrustedGPT)
+10. [ResearchGate Publication](https://www.researchgate.net/publication/386021817_Repository-level_Code_Translation_Benchmark_Targeting_Rust)
+11. [TrustedGPT Activity](https://github.com/TrustedGPT/RustRepoTrans/activity)
+12. [TrustedGPT Requirements](https://github.com/TrustedGPT/RustRepoTrans/blob/main/requirements.txt)
+13. [AlphaXiv Abstract](https://www.alphaxiv.org/abs/2411.13990)
+14. [TrustedGPT Labels](https://github.com/TrustedGPT/RustRepoTrans/labels)
+15. [TrustedGPT Actions](https://github.com/TrustedGPT/RustRepoTrans/actions)
+16. [OpenReview](https://openreview.net/forum?id=pPjZIOuQuF)
+17. [Papers with Code](https://cs.paperswithcode.com/paper/repository-level-code-translation-benchmark)
+18. [TrustedGPT Security](https://github.com/TrustedGPT/RustRepoTrans/security)
+19. [ACL Anthology Paper](https://aclanthology.org/2024.naacl-srw.15.pdf)
+20. [SYSUSELab on GitHub](https://github.com/SYSUSELab)
+21. [Trending Rust Repositories](https://github.com/trending?l=rust)
+22. [Code Translation on Papers with Code](https://paperswithcode.com/task/code-translation/codeless)
+
+---
+
 This README summarizes the project as described in the report and provides an overview of the framework’s methodology, evaluation, and key contributions in automating the translation of C code to Rust.
