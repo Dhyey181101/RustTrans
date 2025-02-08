@@ -100,4 +100,4 @@ For questions, suggestions, or further discussion, please open an issue on GitHu
 This README provides a detailed overview of the translation framework, outlining the methodology, evaluation procedures, and key contributions that enable robust, automated migration of C codebases to Rust.
 
 ---
-Answer from Perplexity: pplx.ai/share
+
