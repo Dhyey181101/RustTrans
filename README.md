@@ -87,7 +87,7 @@ A complete replication package is available, including detailed instructions for
 
 If you use this work in your research, please cite:
 
-  Quoc Hung Le, Yung Hsuan Teng, Krishna Prashant Patel, and Dhyey Samirbhai Shah. 2024. *Conversational Agent for Code Translation to Rust*. 1, 1 (December 2024), 8 pages.
+  Quoc Hung Le, Yung Hsuan Teng, Krishna Prashant Patel, and Dhyey Samirbhai Shah. 2024. *Conversational Agent for Code Translation to Rust*
 
 ---
 
