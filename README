@@ -11,7 +11,7 @@ Automated code translation transforms code from one language to another while pr
 The proposed approach is organized into four distinct phases:
 
 - **Initial Translation:**  
-  Leverages Mistral-7b-instruct to generate a baseline Rust translation from the input C code.
+  Leverages `Mistral-7b-instruct` to generate a baseline Rust translation from the input C code.
 
 - **Compilation Validation:**  
   Systematically checks the generated Rust code for compilation errors. When errors occur, an error-driven refactoring approach uses compiler messages to identify and resolve specific translation issues, ensuring syntactic correctness and compliance with Rust’s safety standards.
@@ -20,16 +20,16 @@ The proposed approach is organized into four distinct phases:
   Executes comprehensive fuzz testing to validate that the translated Rust code functions identically to the original C code. This phase is critical for uncovering semantic discrepancies that might not surface during compilation checks.
 
 - **Multi-Agent Collaboration:**  
-  Implements a Mistral-Llama feedback loop that iteratively processes counterexamples to improve translation accuracy. This counterexample-driven feedback mechanism refines translations through targeted improvements while maintaining lightweight configurations for cost-effectiveness and scalability.
+  Implements a `Mistral-Llama` feedback loop that iteratively processes counterexamples to improve translation accuracy. This counterexample-driven feedback mechanism refines translations through targeted improvements while maintaining lightweight configurations for cost-effectiveness and scalability.
 
 ## Evaluation
 
 The framework was evaluated using two distinct C libraries:
- 
+
 - **libopenaptx:** A C library designed for audio processing applications (31 source files).
 - **opl:** A C library focused on sound card emulation (81 source files).
 
-These evaluations involved configuring the initial translation with up to 12 repeat iterations and applying fuzz testing parameters (e.g., a maximum input size of 32,768 bytes and a 7-minute execution timeout per test case) to ensure rigorous validation of the translated Rust code.
+These evaluations involved configuring the initial translation with up to **12 repeat iterations** and applying fuzz testing parameters (e.g., a maximum input size of **32,768 bytes** and a **7-minute execution timeout** per test case) to ensure rigorous validation of the translated Rust code.
 
 ## Key Contributions
 
@@ -40,7 +40,7 @@ These evaluations involved configuring the initial translation with up to 12 rep
   Uses compiler error messages and counterexample-based feedback loops to systematically identify and resolve translation errors.
 
 - **Leveraging Multiple LLMs:**  
-  Coordinates the strengths of Mistral and Llama to enhance translation reliability and tackle complex code dependencies.
+  Coordinates the strengths of `Mistral` and `Llama` to enhance translation reliability and tackle complex code dependencies.
 
 ## Replication
 
@@ -48,10 +48,10 @@ A complete replication package is available with detailed instructions for evalu
 
 ## Authors
 
-- Quoc Hung Le ([qle3@ncsu.edu](mailto:qle3@ncsu.edu))
-- Yung Hsuan Teng ([yteng2@ncsu.edu](mailto:yteng2@ncsu.edu))
-- Krishna Prashant Patel ([kpatel43@ncsu.edu](mailto:kpatel43@ncsu.edu))
-- Dhyey Samirbhai Shah ([dshah22@ncsu.edu](mailto:dshah22@ncsu.edu))
+- **Quoc Hung Le** (qle3@ncsu.edu)  
+- **Yung Hsuan Teng** (yteng2@ncsu.edu)  
+- **Krishna Prashant Patel** (kpatel43@ncsu.edu)  
+- **Dhyey Samirbhai Shah** (dshah22@ncsu.edu)  
 
 ## Citation
 
@@ -59,33 +59,13 @@ If you use this work in your research, please cite:
 
 > Quoc Hung Le, Yung Hsuan Teng, Krishna Prashant Patel, and Dhyey Samirbhai Shah. 2024. *Conversational Agent for Code Translation to Rust*. 1, 1 (December 2024), 8 pages.
 
----
+## References
 
-### Citations & References
-
-1. [GAISE Report](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/31594813/71f1edf6-5de2-4d9a-ac1f-b2861852e6a0/GAISE_report.pdf)
-2. [GitHub Project](https://github.com/codebasics/project-genai-cold-email-generator/activity)
-3. [arXiv 2411.13990v3](https://arxiv.org/html/2411.13990v3)
-4. [arXiv Abstract](https://arxiv.org/abs/2411.13990)
-5. [arXiv 2411.13990v1](https://arxiv.org/html/2411.13990v1)
-6. [arXiv PDF](http://arxiv.org/pdf/2411.13990.pdf)
-7. [TrustedGPT Repository](https://github.com/TrustedGPT/RustRepoTrans)
-8. [Repository-Level Code Translation Benchmark](https://www.semanticscholar.org/paper/Repository-level-Code-Translation-Benchmark-Rust-Ou-Liu/69a9edf97014dd19bbc2dbc27d109b094f8a9a12)
-9. [TrustedGPT on GitHub](https://github.com/TrustedGPT)
-10. [ResearchGate Publication](https://www.researchgate.net/publication/386021817_Repository-level_Code_Translation_Benchmark_Targeting_Rust)
-11. [TrustedGPT Activity](https://github.com/TrustedGPT/RustRepoTrans/activity)
-12. [TrustedGPT Requirements](https://github.com/TrustedGPT/RustRepoTrans/blob/main/requirements.txt)
-13. [AlphaXiv Abstract](https://www.alphaxiv.org/abs/2411.13990)
-14. [TrustedGPT Labels](https://github.com/TrustedGPT/RustRepoTrans/labels)
-15. [TrustedGPT Actions](https://github.com/TrustedGPT/RustRepoTrans/actions)
-16. [OpenReview](https://openreview.net/forum?id=pPjZIOuQuF)
-17. [Papers with Code](https://cs.paperswithcode.com/paper/repository-level-code-translation-benchmark)
-18. [TrustedGPT Security](https://github.com/TrustedGPT/RustRepoTrans/security)
-19. [ACL Anthology Paper](https://aclanthology.org/2024.naacl-srw.15.pdf)
-20. [SYSUSELab on GitHub](https://github.com/SYSUSELab)
-21. [Trending Rust Repositories](https://github.com/trending?l=rust)
-22. [Code Translation on Papers with Code](https://paperswithcode.com/task/code-translation/codeless)
-
----
-
-This README summarizes the project as described in the report and provides an overview of the framework’s methodology, evaluation, and key contributions in automating the translation of C code to Rust.
+1. [GAISE Report](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/31594813/71f1edf6-5de2-4d9a-ac1f-b2861852e6a0/GAISE_report.pdf)  
+2. [GitHub Activity - Cold Email Generator](https://github.com/codebasics/project-genai-cold-email-generator/activity)  
+3. [arXiv Paper v3](https://arxiv.org/html/2411.13990v3)  
+4. [arXiv Abstract](https://arxiv.org/abs/2411.13990)  
+5. [arXiv Paper v1](https://arxiv.org/html/2411.13990v1)  
+6. [arXiv PDF](http://arxiv.org/pdf/2411.13990.pdf)  
+7. [RustRepoTrans - TrustedGPT](https://github.com/TrustedGPT/RustRepoTrans)  
+8. [Repository-Level Code Translation Benchmark](https://www.semanticscholar.org)  
