@@ -1,50 +1,78 @@
-# Conversational Agent for Code Translation to Rust
+# C-to-Rust Automated Translation Framework
 
-This repository contains the implementation and evaluation of a multi-phase automated translation framework that converts C code to Rust. The approach is designed to facilitate the migration of legacy projects by preserving functionality, enhancing maintainability, and leveraging Rust’s memory safety and performance benefits.
+This repository implements a multi-phase automated translation framework that converts legacy C code into modern, memory-safe Rust code. The approach preserves functionality while addressing compilation, error handling, and semantic equivalence challenges by leveraging advanced large language models (LLMs) and iterative refinement.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Methodology](#methodology)
+- [Evaluation](#evaluation)
+- [Key Contributions](#key-contributions)
+- [Replication](#replication)
+- [Authors](#authors)
+- [Citation](#citation)
+- [Contact](#contact)
+
+---
 
 ## Overview
 
-Automated code translation transforms code from one language to another while preserving its functionality. This project focuses specifically on translating C code to Rust, addressing developers’ hesitations in migrating legacy codebases. By automatically converting C to Rust, the framework extends software lifespan, improves maintainability, and broadens compatibility across platforms.
+The project focuses on automating the translation of C code to Rust, making it easier for developers to modernize legacy codebases. By combining multiple translation phases with error-driven repairs and automated testing, the framework ensures that the generated Rust code is semantically equivalent and functionally robust.
+
+---
 
 ## Methodology
 
-The proposed approach is organized into four distinct phases:
+The translation process is organized into four key phases:
 
 - **Initial Translation:**  
-  Leverages Mistral-7b-instruct to generate a baseline Rust translation from the input C code.
+  Utilizes Mistral-7b-instruct as a baseline to generate an initial Rust translation from the input C code.
 
 - **Compilation Validation:**  
-  Systematically checks the generated Rust code for compilation errors. When errors occur, an error-driven refactoring approach uses compiler messages to identify and resolve specific translation issues, ensuring syntactic correctness and compliance with Rust’s safety standards.
+  Checks the generated Rust code for compilation errors. When issues are detected, an error-driven refactoring mechanism uses compiler messages to guide necessary adjustments.
 
 - **Fuzz Testing:**  
-  Executes comprehensive fuzz testing to validate that the translated Rust code functions identically to the original C code. This phase is critical for uncovering semantic discrepancies that might not surface during compilation checks.
+  Performs comprehensive fuzz testing to validate that the translated Rust code behaves identically to its C counterpart under varied inputs.
 
 - **Multi-Agent Collaboration:**  
-  Implements a Mistral-Llama feedback loop that iteratively processes counterexamples to improve translation accuracy. This counterexample-driven feedback mechanism refines translations through targeted improvements while maintaining lightweight configurations for cost-effectiveness and scalability.
+  Implements a feedback loop between Mistral and Llama agents, leveraging counterexample-driven enhancements to iteratively improve translation accuracy while maintaining lightweight configurations.
+
+---
 
 ## Evaluation
 
 The framework was evaluated using two distinct C libraries:
- 
-- **libopenaptx:** A C library designed for audio processing applications (31 source files).
-- **opl:** A C library focused on sound card emulation (81 source files).
 
-These evaluations involved configuring the initial translation with up to 12 repeat iterations and applying fuzz testing parameters (e.g., a maximum input size of 32768 bytes and a 7-minute execution timeout per test case) to ensure rigorous validation of the translated Rust code.
+- **libopenaptx:** Consisting of 31 source files.
+- **opl:** Consisting of 81 source files.
+
+For each library, the methodology included configuring up to 12 repeated iterations of the initial translation, followed by fuzz testing with constraints such as a maximum input size of 32,768 bytes and a 7-minute execution timeout per test case.
+
+---
 
 ## Key Contributions
 
-- **Multi-Phase Translation Process:**  
-  Integrates iterative refinement techniques—from initial translation and compilation validation to fuzz testing and multi-agent collaboration—to achieve high-fidelity code translations.
+- **Multi-Phase Translation:**  
+  Integrates initial translation, compilation validation, fuzz testing, and multi-agent collaboration to tackle the challenges of translating legacy C code to Rust.
 
 - **Error-Driven Repair:**  
-  Uses compiler error messages and counterexample-based feedback loops to systematically identify and resolve translation errors.
+  Leverages real-time compiler error messages and counterexample-based feedback to systematically address translation issues.
 
-- **Leveraging Multiple LLMs:**  
-  Coordinates the strengths of Mistral and Llama to enhance translation reliability and tackle complex code dependencies.
+- **Advanced LLM Utilization:**  
+  Incorporates state-of-the-art LLMs (Mistral-7b-instruct and Llama) to enhance translation fidelity and manage intricate code dependencies.
+
+- **Scalability and Practicality:**  
+  Demonstrates a scalable approach that automates the translation of real-world C libraries while reducing manual intervention.
+
+---
 
 ## Replication
 
-A complete replication package is available with detailed instructions for evaluation and dataset construction. Researchers and practitioners can refer to the replication package to reproduce experimental results and further explore the methodology.
+A complete replication package is available, including detailed instructions for dataset construction, configuration, and evaluation. Researchers and practitioners are encouraged to use this package to reproduce experimental results and further explore advanced translation techniques.
+
+---
 
 ## Authors
 
@@ -52,6 +80,8 @@ A complete replication package is available with detailed instructions for evalu
 - Yung Hsuan Teng (yteng2@ncsu.edu)  
 - Krishna Prashant Patel (kpatel43@ncsu.edu)  
 - Dhyey Samirbhai Shah (dshah22@ncsu.edu)
+
+---
 
 ## Citation
 
@@ -61,31 +91,13 @@ If you use this work in your research, please cite:
 
 ---
 
-This README summarizes the project as described in the report and provides an overview of the framework’s methodology, evaluation, and key contributions in automating the translation of C code to Rust.
+## Contact
 
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/31594813/71f1edf6-5de2-4d9a-ac1f-b2861852e6a0/GAISE_report.pdf
-[2] https://github.com/codebasics/project-genai-cold-email-generator/activity
-[3] https://arxiv.org/html/2411.13990v3
-[4] https://arxiv.org/abs/2411.13990
-[5] https://arxiv.org/html/2411.13990v1
-[6] http://arxiv.org/pdf/2411.13990.pdf
-[7] https://github.com/TrustedGPT/RustRepoTrans
-[8] https://www.semanticscholar.org/paper/Repository-level-Code-Translation-Benchmark-Rust-Ou-Liu/69a9edf97014dd19bbc2dbc27d109b094f8a9a12
-[9] https://github.com/TrustedGPT
-[10] https://www.researchgate.net/publication/386021817_Repository-level_Code_Translation_Benchmark_Targeting_Rust
-[11] https://github.com/TrustedGPT/RustRepoTrans/activity
-[12] https://github.com/TrustedGPT/RustRepoTrans/blob/main/requirements.txt
-[13] https://www.alphaxiv.org/abs/2411.13990
-[14] https://github.com/TrustedGPT/RustRepoTrans/labels
-[15] https://github.com/TrustedGPT/RustRepoTrans/actions
-[16] https://openreview.net/forum?id=pPjZIOuQuF
-[17] https://cs.paperswithcode.com/paper/repository-level-code-translation-benchmark
-[18] https://github.com/TrustedGPT/RustRepoTrans/security
-[19] https://aclanthology.org/2024.naacl-srw.15.pdf
-[20] https://github.com/SYSUSELab
-[21] https://github.com/trending?l=rust
-[22] https://paperswithcode.com/task/code-translation/codeless
+For questions, suggestions, or further discussion, please open an issue on GitHub or contact the project maintainers directly.
+
+---
+
+This README provides a detailed overview of the translation framework, outlining the methodology, evaluation procedures, and key contributions that enable robust, automated migration of C codebases to Rust.
 
 ---
 Answer from Perplexity: pplx.ai/share
